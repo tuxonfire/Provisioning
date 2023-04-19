@@ -17,7 +17,7 @@
         job_type: "run"                                                           
         inventory: "Test inventory"                                               
         project: "Provisioning"                                                   
-        playbook: "createjob_template.yml"                                              
+        playbook: "provisioning.yml"                                              
         verbosity: 4                                                              
         credentials: 
           - ansible-some-credentials   
