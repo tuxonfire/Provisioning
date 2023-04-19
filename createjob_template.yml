@@ -1,0 +1,32 @@
+---
+- hosts: all
+  gather_facts: true
+  vars:
+      credentials:                                                              
+        - adp-infra-vault-credentials   
+        - adp-lnx-ansible-ssh-key
+  tasks:
+    - name: Execute shell
+      shell: ls /tmp
+      
+    - name: Execute shell
+      shell: env      
+
+    - name: create a Job Template                               
+      ansible.controller.job_template:                                                         
+        name: job                                                                 
+        description: description                                                  
+        organization: Org Name                                                        
+        tower_host: "https://10.10.20.17"                                         
+        tower_username: "admin"                                                   
+        tower_password: "{{ tower_password }}"                                                  
+        job_type: "run"                                                           
+        inventory: "Test inventory"                                               
+        project: "Provisioning"                                                   
+        playbook: "tower_host_working.yml"                                              
+        verbosity: 4                                                              
+        credentials: 
+          - adp-infra-vault-credentials   
+          - adp-lnx-ansible-ssh-key
+        state: "present"                                                          
+        validate_certs: no
