@@ -3,8 +3,8 @@
   gather_facts: true
   vars:
       credentials:                                                              
-        - adp-infra-vault-credentials   
-        - adp-lnx-ansible-ssh-key
+        - ansible-some-credentials   
+        - ansible-ssh-key
   tasks:
     - name: Execute shell
       shell: ls /tmp
@@ -26,7 +26,7 @@
         playbook: "tower_host_working.yml"                                              
         verbosity: 4                                                              
         credentials: 
-          - adp-infra-vault-credentials   
-          - adp-lnx-ansible-ssh-key
+          - ansible-some-credentials   
+          - ansible-ssh-key
         state: "present"                                                          
         validate_certs: no
