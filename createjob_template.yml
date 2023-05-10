@@ -19,8 +19,6 @@
         project: "Provisioning"                                                   
         playbook: "provisioning.yml"                                              
         verbosity: 4                                                              
-        credentials: 
-          - ansible-some-credentials   
-          - ansible-ssh-key
+        credentials: "{{ credentials }}"
         state: "present"                                                          
         validate_certs: no
